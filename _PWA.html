@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Poster PWA</title>
+<script src="./lib/jquery-1.11.3.min.js"></script> 
+<link href="./ImageViewer/imageviewer.css"  rel="stylesheet" type="text/css" />
+<script src="./ImageViewer/imageviewer.js"></script>
+
+<style>
+    .gallery-items{
+        float: left;
+        height: 350px;
+    }
+</style>
+</head>
+
+<body>   
+<div id="image-gallery-1" class="cf">
+    <img src="./images/draft.jpg" data-high-res-img="./images/draft_big.jpg" alt="" class="gallery-items">    
+</div>
+    
+<script type="text/javascript">
+
+$(function () {
+    var viewer = ImageViewer();
+    var imgSrc = './images/draft_big.jpg';
+    
+    viewer.show(imgSrc);
+    
+});
+    
+$(function () {
+    var viewer = ImageViewer();
+    $('.gallery-items').click(function () {
+        var imgSrc = this.src,
+            highResolutionImage = $(this).data('high-res-img');
+ 
+        viewer.show(imgSrc, highResolutionImage);
+    });
+});
+</script>
+</body>
+
+</html>
